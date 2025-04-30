@@ -1,14 +1,35 @@
-
 .book-container {
-    width: 20%;
-    height:60vh;
-    padding: 0.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: aliceblue;
-    
-    .properties{
-          display: inline-block;
-    } 
-  } 
+      width: 100%;
+      height: 100%;
+      padding: 0.5em;
+      display: flex;
+      //     justify-content: center;
+      //     align-items: center;
+      background-color: aliceblue;
+
+      .image {
+            width: 100%;
+            height: 30vh;
+
+            img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+            }
+      }
+
+      .id {
+            font-size: 0.8rem;
+            color: rgb(180, 178, 178);
+      }
+
+      .title {
+            font-weight: bold;
+            font-size: 1.1rem;
+      }
+
+      .price {
+            color: green;
+            font-weight: bold;
+      }
+}

@@ -1,15 +1,9 @@
 <mat-card class="container">
-    <mat-card-content class="books-container">
-      <div class="books-grid">
-        @for (book of books; track $index) {
-          <app-book >
-            [image]="book.image"
-            [id]="book.id"
-            [title]="book.title"
-            [author]="book.author"
-            [price]="book.price"
-          </app-book>
-        }
-      </div>
-    </mat-card-content>
-  </mat-card>
+  <mat-card-content class="books-container">
+    <div class="books">
+      @for (book of books; track $index) {
+      <app-book [book]=" book"></app-book>
+      }
+    </div>
+  </mat-card-content>
+</mat-card>
