@@ -1,0 +1,51 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-image: url('/images/cafe-frankfurt-germany.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+mat-card {
+    width: 30%;
+    background-color: rgba(orange, 0.9);
+    padding: 1.5em;
+
+    div {
+        margin-bottom: 1em;
+    }
+}
+
+.mobile {
+    width: 90%;
+}
+
+
+mat-card-content {
+    text-align: center;
+    margin-top: 2em;
+
+    mat-form-field {
+        width: 100%;
+    }
+
+    mat-label {
+        padding: 0.5em;
+    }
+
+    mat-checkbox {
+        display: flex;
+        align-items: right;
+        margin: 1em 0;
+
+        .checkbox-label {
+            margin-right: 8px;
+        }
+    }
+
+    button {
+        width: 100%;
+    }
+}

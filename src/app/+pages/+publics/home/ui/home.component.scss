@@ -1,0 +1,15 @@
+.newContainer{
+
+    background-color: aliceblue;
+    padding: 0.5em;
+    .newBooks{
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    mat-card{
+        display: inline-block;
+        width: 20%;
+    }
+}
