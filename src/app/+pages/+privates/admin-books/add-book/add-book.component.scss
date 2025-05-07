@@ -1,0 +1,43 @@
+.book{
+    width: 40%;
+    height: auto;
+    padding: 0.5em;
+    background-color: aliceblue;
+
+}
+.book-container {
+    // display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+
+    .input {
+
+          width: 100%;
+    }
+
+    .image {
+          width: 100%;
+          height: 30vh;
+
+          img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+          }
+    }
+
+    .id {
+          font-size: 0.8rem;
+          color: rgb(180, 178, 178);
+    }
+
+    .title {
+          font-weight: bold;
+          font-size: 1.1rem;
+    }
+
+    .price {
+          color: green;
+          font-weight: bold;
+    }
+}

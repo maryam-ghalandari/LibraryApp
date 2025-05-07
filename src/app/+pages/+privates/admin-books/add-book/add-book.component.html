@@ -1,0 +1,59 @@
+<mat-card class="book" appearance="outlined">
+    
+    <mat-card-content class=" book-container">
+            <form (ngSubmit)="add()">
+            <div class="image">
+                <mat-form-field>
+                    <mat-label>عکس محصول </mat-label>
+                    <input name="image" [(ngModel)]="addbook.image"
+                    matInput placeholder="عکس محصول">
+                    <mat-hint>فرمت های مورد قبول jpg، jpeg، webp هستند</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="id">
+                <mat-form-field>
+                    <mat-label>شناسه محصول </mat-label>
+                    <input name="id" [(ngModel)]="addbook.id" matInput placeholder="شناسه محصول">
+                </mat-form-field>
+            </div>
+            <div class="title">
+                <mat-form-field>
+                    <mat-label>عنوان محصول </mat-label>
+                    <input name="title" [(ngModel)]="addbook.title" matInput placeholder="عنوان محصول">
+                    <mat-hint> عنوان باید حداقل شامل 4 کلمه باشد</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="writer">
+                <mat-form-field>
+                    <mat-label>نام نویسنده </mat-label>
+                    <input name="wr" [(ngModel)]="addbook.writer" matInput placeholder="نام نویسنده ">
+                </mat-form-field>
+            </div>
+            <div class="publisher">
+                <mat-form-field>
+                    <mat-label>ناشر </mat-label>
+                    <input name="pub" [(ngModel)]="addbook.publisher" matInput placeholder="ناشر  ">
+                </mat-form-field>
+            </div>
+            <div class="price">
+                <mat-form-field>
+                    <mat-label>قیمت </mat-label>
+                    <input name="price" [(ngModel)]="addbook.price" matInput placeholder="قیمت به تومان  ">
+                </mat-form-field>
+            </div>
+            <div class="number">
+                <mat-form-field>
+                    <mat-label>موجودی  </mat-label>
+                    <input name="number" [(ngModel)]="addbook.number" matInput placeholder="تعداد کتاب  ">
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-flat-button>تایید </button>
+                <!-- [disabled]="!isvalid()" -->
+
+            </div>
+
+
+        </form>
+        </mat-card-content>
+</mat-card>

@@ -42,7 +42,7 @@ export class LoginComponent {
       console.log(this.login);
       this.busy = false;
     }, 3000);
-    this.router.navigateByUrl('/admin');
+    this.router.navigateByUrl('/private');
   }
   isValid() {
     if (this.login.username.trim() == '' || this.login.password == '') {

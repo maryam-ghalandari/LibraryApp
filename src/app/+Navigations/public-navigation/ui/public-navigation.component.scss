@@ -1,30 +1,34 @@
-.banner{
+.banner {
     display: flex;
     width: 100%;
     height: 25%;
     background-color: blueviolet;
     color: white;
-    font-size: x-large;
+    font-size: xx-large;
     justify-content: center;
     align-items: center;
 }
-.menu{
+
+.menu {
     padding: 0.4em;
     direction: rtl;
     width: 100%;
     background-color: purple;
-    a{
+
+    a {
         color: white;
         text-decoration: none;
         text-transform: uppercase;
         padding: 0.4em;
     }
-    :hover{
+
+    :hover {
         background-color: white;
-            color: black;
-            transition: 3s;
-        }
+        color: black;
+        transition: 3s;
     }
-    .footer{
+}
+
+.footer {
     text-align: center;
 }

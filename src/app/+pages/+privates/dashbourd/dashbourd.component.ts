@@ -7,6 +7,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { routes } from '../../../app.routes';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-dashbourd',
@@ -18,7 +20,8 @@ import { MatCardModule } from '@angular/material/card';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    RouterOutlet
   ]
 })
 export class DashbourdComponent {
