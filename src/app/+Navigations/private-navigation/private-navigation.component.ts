@@ -6,13 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { Observable, Subscribable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { Router } from '@angular/router';
-import { MatMenuModule } from '@angular/material/menu';
-import { FormsModule } from '@angular/forms';
-import { routes } from '../../../app.routes';
+import {MatMenuModule} from '@angular/material/menu';
 
 @Component({
   selector: 'app-private-navigation',
@@ -25,38 +22,21 @@ import { routes } from '../../../app.routes';
     MatListModule,
     MatIconModule,
     AsyncPipe,
+    MatMenuModule,
     RouterOutlet,
-    RouterLink,
-    MatMenuModule
+    RouterLink
   ]
 })
-
 export class PrivateNavigationComponent {
-  private router = inject(Router);
+
+  logout() {
+throw new Error('Method not implemented.');
+}
   private breakpointObserver = inject(BreakpointObserver);
-  
-  Observable = this.breakpointObserver.observe(Breakpoints.Handset)
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
-  isHandset$: Observable<unknown> | Subscribable<unknown> | Promise<unknown> | undefined;
-  list() {
-    this.router.navigateByUrl('/admin-books')
-  }
-  add() {
-    this.router.navigateByUrl('/add-book');
-  }
-  category() {
-    this.router.navigateByUrl('/category');
-  }
-  members() {
-    this.router.navigateByUrl('/members');
-  }
-  addmember() {
-    this.router.navigateByUrl('/add-members');
-  }
 }
-
-
-

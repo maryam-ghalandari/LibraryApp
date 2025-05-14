@@ -1,58 +1,53 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>منو</mat-toolbar>
-
+    <mat-toolbar class="menuHeader">مدیریت کتابخانه نوین </mat-toolbar>
     <mat-nav-list>
 
-      <a mat-list-item routerLink="/dashboard">
+      <a mat-list-item routerLink="dashboard">
         <mat-icon>dashboard</mat-icon>
         داشبورد
       </a>
 
-      <a mat-list-item [matMenuTriggerFor]="booksMenu">
+       <a mat-list-item [matMenuTriggerFor]="booksMenu">
         <mat-icon>menu_book</mat-icon>
         کتاب‌ها
         <mat-menu #booksMenu="matMenu">
-          <button name="list" (click)="list()" mat-menu-item>
-            لیست کتاب‌ها
+          <button mat-menu-item routerLink="admin-books" routerLinkActive="active-link">
             <mat-icon>list</mat-icon>
+            همه کتاب‌ها
           </button>
-
-
-          <button name="add" (click)="add()" mat-menu-item>
-            افزودن کتاب
+          <button mat-menu-item routerLink="add-book" routerLinkActive="active-link">
             <mat-icon>add</mat-icon>
+            افزودن کتاب
           </button>
-
-          <button name="category" (click)="category()" mat-menu-item>
-            دسته‌بندی
+          <button mat-menu-item routerLink="categories" routerLinkActive="active-link">
             <mat-icon>category</mat-icon>
+            دسته‌بندی
           </button>
         </mat-menu>
       </a>
-
       <a mat-list-item [matMenuTriggerFor]="membersMenu">
         <mat-icon>people</mat-icon>
         اعضا
         <mat-menu #membersMenu="matMenu">
-          <button (click)="members()" mat-menu-item>
+          <button mat-menu-item routerLink="members/list" routerLinkActive="active-link">
             <mat-icon>list</mat-icon>
             لیست اعضا
           </button>
-          <button (click)="addmember()" mat-menu-item>
+          <button mat-menu-item routerLink="members/add" routerLinkActive="active-link">
             <mat-icon>person_add</mat-icon>
             افزودن عضو جدید
           </button>
         </mat-menu>
       </a>
 
-      <a mat-list-item routerLink="/loans">
+      <a mat-list-item routerLink="/loans" (click)="drawer.close()">
         <mat-icon>bookmark</mat-icon>
         امانات
       </a>
 
-      <a mat-list-item routerLink="/login">
+      <a mat-list-item (click)="logout()">
         <mat-icon>logout</mat-icon>
         خروج
       </a>
@@ -66,8 +61,13 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       }
-      <span>کتابخانه نوین</span>
+      <span>سامانه کتابداری نوین </span>
     </mat-toolbar>
-    <router-outlet />
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+
+
   </mat-sidenav-content>
 </mat-sidenav-container>

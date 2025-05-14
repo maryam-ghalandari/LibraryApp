@@ -3,8 +3,8 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
@@ -13,6 +13,8 @@ import { AsyncPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Login } from '../models/login';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AuthService } from '../../../../+shared/+services/auth.service';
+// import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -27,22 +29,31 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatInputModule,
     MatCheckboxModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    // MatDialogModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  Auth = inject(AuthService);
   router = inject(Router);
-  login: Login = { username: '', password: '', keepme: false };
   busy = false;
+  message: string = '';
+  login: Login = { username: '', password: '', keepme: false };
   check() {
     this.busy = true;
-    setTimeout(() => {
-      console.log(this.login);
+    let result = this.Auth.check(this.login.username, this.login.password);
+    result.subscribe (r=> {
+      if (r == true) {
+        this.router.navigateByUrl('/admin');
+      }
+      else {
+        this.message = 'نام کاربری یا کلمه عبور اشتباه است';
+      }
+
       this.busy = false;
-    }, 3000);
-    this.router.navigateByUrl('/private');
+    });
   }
   isValid() {
     if (this.login.username.trim() == '' || this.login.password == '') {
@@ -52,7 +63,7 @@ export class LoginComponent {
     return true;
   }
 
-    private breakpointObserver = inject(BreakpointObserver);
+  private breakpointObserver = inject(BreakpointObserver);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

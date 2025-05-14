@@ -1,6 +1,29 @@
+@use '@angular/material' as mat;
+
+
 @font-face {
     font-family: persian;
     src: url('/fonts/persian.woff2');
 }
+*{
+    font-family: persian;
+}
 html, body { height: 100%; }
-body { margin: 0; padding:0; font-family: persian;  direction: rtl;}
+body { margin: 0; padding:0; direction: rtl;}
+:root {
+  @include mat.toolbar-overrides((
+    container-background-color: darkblue,
+    container-text-color: white,
+    title-text-font: persian,
+  ));
+  @include mat.sidenav-overrides((
+    container-background-color: blue,
+    container-text-color: white,
+  ));
+  @include mat.list-overrides((
+    // active-indicator-color: orange,
+    // list-item-container-color: red,
+    list-item-label-text-font: persian,
+    list-item-label-text-color: white,
+  ));
+}

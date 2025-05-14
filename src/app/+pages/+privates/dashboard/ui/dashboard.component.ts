@@ -7,24 +7,21 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { routes } from '../../../app.routes';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-dashbourd',
-  templateUrl: './dashbourd.component.html',
-  styleUrl: './dashbourd.component.scss',
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrl: './dashboard.component.scss',
   imports: [
     AsyncPipe,
     MatGridListModule,
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule,
-    RouterOutlet
+    MatCardModule
   ]
 })
-export class DashbourdComponent {
+export class DashboardComponent {
   private breakpointObserver = inject(BreakpointObserver);
 
   /** Based on the screen size, switch from standard to one column per row */

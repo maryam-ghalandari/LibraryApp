@@ -6,8 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms'; 
-import { InventoryService } from '../../../../+services/inventory.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { InventoryService } from '../../../../+services/+privated/inventory.service';
 
 @Component({
   selector: 'app-add-book',
@@ -29,7 +29,7 @@ export class AddBookComponent {
 // if(this.addbook.id() =='' || this.addbook.category() =='' || this.addbook.title() =='' || this.addbook.image()=='' && this.writer && this.publisher && this.price=true)
 // console.log(this.addbook);
 // }
-InventoryService=inject(InventoryService);
+InventoryService=inject(InventoryService)
   addbook: Addbook = { id: '', category: '', title: '', writer: '', publisher: '', price: '', image: '', number: 0 }
   add() {
     console.log(this.addbook);
